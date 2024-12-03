@@ -1,0 +1,26 @@
+on:
+    workflow_call:
+        inputs:
+            greeting:
+                required: true
+                type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: show workspace files
+      run: ls -la hello-world-api
+    - name: Print Greetings
+      run: echo "Hello, ${{ inputs.greeting }}!"
+    - name: run build
+      run: dotnet build
+    - name: show workspace files
+      run: ls -la hello-world-api
+  scan:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Run scan
+      run: echo "Running scan.....${{ inputs.greeting }}"
