@@ -8,12 +8,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: false
+    # if: false
     steps:
     - uses: actions/checkout@v1
     - name: show workspace files
       run: ls -la hello-world-api
-    - name: Print Greetings
+    - name: Print Greetings for ${{ inputs.greeting }}
       run: echo "Hello, ${{ inputs.greeting }}!"
     - name: run build
       run: dotnet build
