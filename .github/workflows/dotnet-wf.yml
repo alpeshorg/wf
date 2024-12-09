@@ -21,7 +21,7 @@ jobs:
       run: ls -la hello-world-api
   scan:
     runs-on: ubuntu-latest
-    needs: build
+    needs: build-for
     steps:
     - name: Run scan
       run: echo "Running scan.....${{ inputs.greeting }}"
