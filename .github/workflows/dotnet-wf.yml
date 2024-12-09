@@ -6,7 +6,7 @@ on:
                 type: string
 
 jobs:
-  build-for-${{ inputs.greeting }}:
+  build-for:
     runs-on: ubuntu-latest
     # if: false
     steps:
